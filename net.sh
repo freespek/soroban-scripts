@@ -6,12 +6,10 @@
 
 # Please make sure to define/revise constants in "constants.sh"
 
-# Import running/logging commants
-. run.sh
+SCRIPT_DIR=`dirname ${BASH_SOURCE[0]-$0}`
+SCRIPT_DIR=`cd $SCRIPT_DIR && pwd`
 
-# Set up a fancy terminal? :D
-export SOROBAN_PS1="⍉ > "
-
+. "$SCRIPT_DIR/run.sh"
 
 # Launch Stellar Docker image, and create default identities
 net-launch() {

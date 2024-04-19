@@ -4,7 +4,10 @@
 # Andrey Kuprianov, 2024
 ##############################
 
-. constants.sh
+SCRIPT_DIR=`dirname ${BASH_SOURCE[0]-$0}`
+SCRIPT_DIR=`cd $SCRIPT_DIR && pwd`
+
+. "$SCRIPT_DIR/constants.sh"
 
 # log the command to LOGFILE
 log() {
