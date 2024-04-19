@@ -1,10 +1,10 @@
 # Tiny scripts to simplify testing of / playing with Soroban smart contracts
 
-This repository contains a few scripts to simplify our life when interacting with Soroban,  The scripts automate a few operations which you would need to do frequently, if you want to "play" with Soroban contracts from the command line.
+This repository contains a few scripts to simplify your life when interacting with [Soroban](https://stellar.org/soroban), the emerging smart contract platform from [Stellar](https://stellar.org/). The scripts automate a few operations which you would need to do frequently if you want to "play" with Soroban contracts from the command line.
 
-**NB!** We are happy to help, but keep in mind that **these scripts are for testing purposes only**. No waranties of any kind are provided; use at your own risk. Please see [LICENSE](./LICENSE) for full info.
+**NB!** We are happy to help, but please keep in mind that **these scripts are for testing purposes only**. No waranties of any kind are provided; use at your own risk. Please see [LICENSE](./LICENSE) for full info.
 
-In order to use these scripts please make sure that to install on your system (OS specific):
+In order to use these scripts please make sure to install the following on your system (OS specific):
 
 - [Docker](https://docs.docker.com/get-docker/)
 - [Rust](https://www.rust-lang.org/tools/install)
