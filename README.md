@@ -2,7 +2,7 @@
 
 This repository contains a few scripts to simplify our life when interacting with Soroban,  The scripts automate a few operations which you would need to do frequently, if you want to "play" with Soroban contracts from the command line.
 
-**NB!** We are happy to help, but keep in mind that **these scripts are for testing purposes only**. No waranties of any kind are provided; use at your own risk. Please see [LICENSE](./LICENSE) for full info; enjoy!
+**NB!** We are happy to help, but keep in mind that **these scripts are for testing purposes only**. No waranties of any kind are provided; use at your own risk. Please see [LICENSE](./LICENSE) for full info.
 
 In order to use these scripts please make sure that to install on your system (OS specific):
 
@@ -16,6 +16,8 @@ In a directory of your choice, clone two repos:
 - `git clone https://github.com/freespek/soroban-scripts.git`
 
 Now, you are ready to go! 
+
+### Starting/stopping the network
 
 ```sh
 ⍉ > . soroban-scripts/net.sh 
@@ -43,4 +45,38 @@ What you see above is the automation of:
 - creating a few testing identities
 - stopping of the Docker container
 
-There is more to come; stay tuned!
+### Creating token contracts, and interacting with them
+
+Now, let's do smth more interesting: we are going to build and deploy the example token contract, and interact with it. Notice that for all `token-*` calls the first parameter is the identity that signs that transaction (its source).
+
+```sh
+# now we source the token script
+⍉ > . soroban-scripts/token.sh 
+⍉ > net-launch
+# ... as before
+👽 All passengers aboard; warp 9, commander!
+⍉ > contract-example-build token
+# token contract is being build...
+Finished release [optimized] target(s) in 20.06s
+# deploy token contract with alice as admin, 18 decimals, and COIN as name/symbol
+⍉ > coin=$(token-create alice alice 18 COIN COIN)
+⍉ > token-name alice $coin
+"COIN"
+⍉ > token-balance alice $coin alice
+"0"
+# alice doesn't have any coins, but she can mint
+⍉ > token-mint alice $coin alice 100
+⍉ > token-balance alice $coin alice
+"100"
+# alice is kind, so she shares her coins with bob
+⍉ > token-transfer alice $coin alice bob 50
+⍉ > token-balance alice $coin alice
+"50"
+⍉ > token-balance bob $coin bob
+"50"
+⍉ > net-stop
+# ...
+👽 Have a nice day, commander!
+```
+
+There is more to come; enjoy, and stay tuned!
