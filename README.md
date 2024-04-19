@@ -18,6 +18,7 @@ In a directory of your choice, clone two repos:
 Now, you are ready to go! 
 
 ```sh
+⍉ > . soroban-scripts/net.sh 
 ⍉ > net-launch
 👽 Launching stellar transport... 891d50346d47955c63371d27ffe794cca57ebd2eb1ce8c89a4941441ed6f3cb4
    💀 Access to stellar transport denied; retrying...
