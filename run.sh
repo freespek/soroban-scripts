@@ -36,7 +36,7 @@ log-run() {
     fi
     if [ -n "$output" ] 
     then 
-        echo $output
+        printf "$output"
         printf "\n$output\n" >> $LOGFILE
     fi
     printf "\n" >> $LOGFILE

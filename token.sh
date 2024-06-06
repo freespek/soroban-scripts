@@ -12,7 +12,7 @@ SCRIPT_DIR=`cd $SCRIPT_DIR && pwd`
 # Deploy the example token contract
 # Args: SOURCE ADMIN DECIMALS NAME SYMBOL
 # Returns: CONTRACT-ID
-token-create() {
+token-deploy() {
     log token-create "$*"
     contract=$(contract-example-deploy token)
     contract-invoke $1 $contract initialize --admin $2 --decimal $3 --name $4 --symbol $5
@@ -55,4 +55,12 @@ token-balance() {
 token-transfer() {
     log token-transfer "$*"
     contract-invoke $1 $2 transfer --from $3 --to $4 --amount $5
+}
+
+# Get allowance
+# Args: SOURCE CONTRACT-ID FROM SPENDER
+# Returns: allowance of FROM to SPENDER
+token-allowance() {
+    log token-allowance "$*"
+    contract-invoke $1 $2 allowance --from $3 --spender $4
 }

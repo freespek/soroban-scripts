@@ -8,10 +8,19 @@
 DOCKER_IMAGE=stellar/quickstart
 
 # A few variables to simplify calls with Soroban CLI
+
+## Local (Docker) network
 PORT=8000
-export SOROBAN_RPC_URL="http://localhost:$PORT/soroban/rpc"
-export SOROBAN_NETWORK=testnet
-export SOROBAN_NETWORK_PASSPHRASE="Standalone Network ; February 2017"
+SOROBAN_LOCAL_NETWORK_NAME=local
+SOROBAN_LOCAL_RPC_URL="http://localhost:$PORT/soroban/rpc"
+SOROBAN_LOCAL_NETWORK_PASSPHRASE="Standalone Network ; February 2017"
+
+# Public testnet
+SOROBAN_TESTNET_NETWORK_NAME=testnet
+SOROBAN_TESTNET_RPC_URL="https://soroban-testnet.stellar.org:443"
+SOROBAN_TESTNET_NETWORK_PASSPHRASE="Test SDF Network ; September 2015"
+
+# Default source account
 export SOROBAN_ACCOUNT=alice
 
 # Where to look for Soroban example contracts
